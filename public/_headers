@@ -1,0 +1,32 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(self "https://checkout.paystack.com")
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://js.paystack.co https://*.paystack.co https://*.paystack.com https://www.googletagmanager.com; connect-src 'self' https://*.paystack.co https://*.paystack.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; img-src 'self' data: https:; frame-src https://checkout.paystack.com https://*.paystack.com https://*.paystack.co https://www.google.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'self'; form-action 'self' https://wa.me; object-src 'none'; worker-src 'self'; manifest-src 'self'
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/logo/*
+  Cache-Control: public, max-age=2592000
+
+/index.html
+  Cache-Control: no-cache
+
+/sw.js
+  Cache-Control: no-cache
+  Service-Worker-Allowed: /
+
+/manifest.webmanifest
+  Cache-Control: no-cache
+  Content-Type: application/manifest+json
+
+/workbox-*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/icons/*
+  Cache-Control: public, max-age=2592000
+
+/downloads/*
+  Cache-Control: public, max-age=86400

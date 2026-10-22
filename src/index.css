@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-white font-sans text-charcoal antialiased; font-size: 1.0625rem; line-height: 1.7; }
+  h1, h2, h3, h4 { @apply font-heading text-navy; letter-spacing: -0.02em; line-height: 1.12; text-wrap: balance; }
+  p { text-wrap: pretty; }
+  ::selection { background: #5EBCDC; color: #082638; }
+  :focus-visible { outline: 3px solid #156084; outline-offset: 3px; border-radius: 6px; }
+  .on-dark :focus-visible, .on-dark:focus-visible { outline-color: #9BD8EC; }
+  img { @apply max-w-full; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10; }
+  .section { @apply py-20 sm:py-28; }
+  .skip-link { @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-navy px-5 py-3 text-sm font-semibold text-white shadow-lift transition-transform focus:translate-y-0; }
+
+  .glass { @apply border border-white/25 bg-white/10 backdrop-blur-xl; }
+  .glass-light { @apply border border-white/70 bg-white/75 shadow-soft backdrop-blur-xl; }
+
+  .btn { @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-semibold leading-none transition duration-200 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-sm { @apply min-h-[44px] px-5 py-2.5 text-sm; }
+  .btn-lg { @apply min-h-[56px] px-8 py-4 text-base; }
+  .btn-primary { @apply bg-grad-ocean text-white shadow-glow hover:-translate-y-0.5 hover:brightness-110 active:translate-y-0; }
+  .btn-leaf { @apply bg-grad-leaf text-white shadow-soft hover:-translate-y-0.5 hover:brightness-105; }
+  .btn-outline { @apply border-2 border-ocean/25 bg-white text-ocean hover:border-ocean hover:bg-ocean-50; }
+  .btn-light { @apply bg-white text-navy shadow-soft hover:-translate-y-0.5 hover:bg-mist; }
+  .btn-ghost { @apply border border-white/40 text-white hover:bg-white/15; }
+
+  .field { @apply block w-full rounded-2xl border border-navy/15 bg-white px-4 py-3.5 text-base text-charcoal shadow-sm transition placeholder:text-charcoal/45 hover:border-ocean/40 focus:border-ocean focus:outline-none focus:ring-4 focus:ring-sky/30; }
+  .field-select { appearance: none; padding-right: 2.75rem; background-repeat: no-repeat; background-position: right 1rem center; background-size: 20px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23156084' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
+  .field[aria-invalid='true'] { @apply border-red-600 focus:ring-red-200; }
+  .label { @apply mb-1.5 block text-sm font-semibold text-navy; }
+
+  .prose-soft p + p { @apply mt-4; }
+  /* Developer credit in the footer: gently pulses and shifts colour so it is easy to notice. */
+  .dev-credit { @apply inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm text-white/80 transition hover:border-sky hover:bg-white/10 hover:text-white; animation: credit-pulse 2.6s ease-in-out infinite; }
+  .dev-credit strong { font-weight: 800; animation: credit-color 3.2s ease-in-out infinite; }
+  .dev-credit:hover { animation: none; transform: scale(1.1); }
+  .dev-credit:hover strong { animation: none; color: #fff; }
+  .link-inline { @apply font-semibold text-ocean underline decoration-sky decoration-2 underline-offset-4 hover:text-navy; }
+}
+
+@keyframes credit-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+@keyframes credit-color { 0%, 100% { color: #5EBCDC; } 50% { color: #A9D98A; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
